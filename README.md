@@ -4,7 +4,7 @@ cl-env is a project for loading environment variables from .env files into the c
 
 Calling `(cl-env:init)` will attempt to load the .env file in the current working directory into your environment (accessible with `(uiop:getenv)`). If there is no file nothing will be loaded into your environment.
 
-### Usage:
+### Usage
 
 ```lisp
 (cl-env:init) ;; load .env for the same directory as current directory.
@@ -22,7 +22,7 @@ or
 (cl-env:init (merge-pathnames (truename ".") ".env")) ;; load .dev.env from current directory.
 ```
 
-# Runnings test
+# Runnings tests
 
 1.  Clone this repo
 
