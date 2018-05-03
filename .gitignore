@@ -1,0 +1,7 @@
+playground/main
+playground/main.a
+playground/main.h
+playground/main.o
+playground/main.so
+*.fasl
+*.lisp~

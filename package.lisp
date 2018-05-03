@@ -1,7 +1,8 @@
 ;;;; package.lisp
 
 (defpackage #:cl-env
-  (:use #:cl)
+  (:use #:cl
+	#:cffi)
   (:export #:init
            #:getenv))
 
