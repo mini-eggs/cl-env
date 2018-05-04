@@ -4,14 +4,25 @@
 
 #include "main.h"
 
-char *call_go()
+int call_go(char * c_string) 
 {
-    GoString go_msg = GetHelloWorldFromGo(); // not null terminated.
+    // c string -> go string
+    GoString go_string;
+    go_string.p = c_string;
+    go_string.n = strlen(c_string) - 1;
 
-    char *c_msg = malloc(go_msg.n + 1); // check failure, todo.
-
-    memcpy(c_msg, go_msg.p, go_msg.n);
-    c_msg[go_msg.n] = '\0'; // make null terminated.
-
-    return c_msg; // this needs to be free'd later.
+    return DirenvProxy(go_string);
 }
+
+int main(int argc, char **argv) 
+{
+    int status = call_go(".");
+    printf("%i\n", status);
+    
+
+    const char* s = getenv("WOW"); 
+    printf("PATH :%s\n",(s!=NULL)? s : "getenv returned NULL"); 
+
+    return status;
+}
+
